@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hacettepe Yapay Zekâ Topluluğu | AI Club</title>
+    <link rel="icon" type="image/png" href="assets/logo-light.png">
+    <meta name="description"
+        content="Hacettepe Üniversitesi Yapay Zekâ Topluluğu resmi web sitesi. Eğitimler, etkinlikler, yarışmalar, projeler ve daha fazlası.">
+    <meta name="keywords"
+        content="Hacettepe, Üniversite, Yapay Zeka, AI Club, Topluluk, Datathon, Ideathon, Vibethon, AI Fest">
+    <meta property="og:title" content="Hacettepe Yapay Zekâ Topluluğu">
+    <meta property="og:description" content="Hacettepe Üniversitesi Yapay Zekâ Topluluğu resmi web sitesi.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ==================== BACKGROUND VIDEO ==================== -->
+    <video id="neural-canvas" autoplay loop muted playsinline>
+        <source src="assets/videos/background.mp4" type="video/mp4">
+    </video>
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header id="header">
+        <div class="header-container">
+            <!-- Left: Hamburger + Logo -->
+            <div class="header-left">
+                <button id="hamburger-btn" type="button" aria-label="Menüyü Aç" title="Menüyü Aç">
+                    <span class="hamburger-line"></span>
+                </button>
+                <a href="#hero" id="logo-link" class="logo-link" title="Ana Sayfa">
+                    <img src="assets/logo.png" alt="Hacettepe AI Club Logo" id="logo-img">
+                </a>
+            </div>
+
+            <!-- Right: Üye Ol + İletişim -->
+            <div class="header-right">
+                <a href="https://topluluklar.hacettepe.edu.tr/topluluklar/yapay-zeka-toplulugu" target="_blank"
+                    rel="noopener" class="btn-member" id="btn-member">
+                    <i class="fa-solid fa-user-plus"></i> Üye Ol
+                </a>
+                <span class="header-separator">|</span>
+                <div id="contact-dropdown-wrapper" class="contact-dropdown-wrapper">
+                    <button class="btn-contact" id="btn-contact">
+                        <i class="fa-solid fa-envelope"></i> İletişim
+                    </button>
+                    <div id="contact-dropdown" class="contact-dropdown">
+                        <a href="https://www.instagram.com/hacettepeaiclub" target="_blank" rel="noopener"
+                            class="social-link">
+                            <i class="fa-brands fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.youtube.com/c/hacettepeaiclub" target="_blank" rel="noopener"
+                            class="social-link">
+                            <i class="fa-brands fa-youtube"></i> YouTube
+                        </a>
+                        <a href="https://www.tiktok.com/@hacettepeaiclub" target="_blank" rel="noopener"
+                            class="social-link">
+                            <i class="fa-brands fa-tiktok"></i> TikTok
+                        </a>
+                        <a href="https://x.com/hacettepeaiclub" target="_blank" rel="noopener" class="social-link">
+                            <i class="fa-brands fa-x-twitter"></i> X (Twitter)
+                        </a>
+                        <a href="https://www.linkedin.com/company/hacettepeaiclub" target="_blank" rel="noopener"
+                            class="social-link">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/hacettepeaiclub" target="_blank" rel="noopener" class="social-link">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <hr class="dropdown-divider">
+                        <button class="social-link contact-trigger" id="open-contact-form">
+                            <i class="fa-solid fa-paper-plane"></i> Bizimle İletişime Geçin
+                        </button>
+                    </div>
+                </div>
+                <span class="header-separator">|</span>
+                <button id="theme-toggle" class="btn-theme-toggle" aria-label="Temayı Değiştir"
+                    title="Karanlık Modu Aç">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== SIDE MENU (Hamburger) ==================== -->
+    <div class="side-menu-overlay" id="side-menu-overlay"></div>
+    <nav id="side-menu" class="side-menu" aria-label="Ana Menü">
+        <div class="side-menu-header">
+            <img src="assets/logo.png" alt="Logo" class="side-menu-logo">
+            <button id="side-menu-close" class="side-menu-close" aria-label="Menüyü Kapat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <ul class="side-menu-links">
+            <li><a href="#hakkimizda" class="side-menu-link"><i class="fa-solid fa-info-circle"></i> Hakkımızda</a></li>
+            <li><a href="#misyon-vizyon" class="side-menu-link"><i class="fa-solid fa-bullseye"></i>
+                    Misyonumuz/Vizyonumuz</a></li>
+            <li><a href="#projeler" class="side-menu-link"><i class="fa-solid fa-diagram-project"></i> Projelerimiz</a>
+            </li>
+            <li><a href="#yarismalar" class="side-menu-link"><i class="fa-solid fa-trophy"></i> Yarışmalar</a></li>
+            <li><a href="#etkinlikler" class="side-menu-link"><i class="fa-solid fa-calendar-check"></i> Etkinlikler</a>
+            </li>
+            <li><a href="#egitimler" class="side-menu-link"><i class="fa-solid fa-graduation-cap"></i> Eğitimler</a>
+            </li>
+            <li><a href="#takvim" class="side-menu-link"><i class="fa-solid fa-calendar-days"></i> Takvim</a></li>
+            <li><a href="#ekip" class="side-menu-link"><i class="fa-solid fa-people-group"></i> Biz Kimiz?</a></li>
+            <li><a href="#komisyonlar" class="side-menu-link"><i class="fa-solid fa-sitemap"></i> Komisyonlar</a></li>
+        </ul>
+        <div class="side-menu-footer">
+            <button id="admin-trigger" class="btn-admin-login">
+                <i class="fa-solid fa-right-to-bracket"></i> Giriş Yap
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== ADMIN TOOLBAR (hidden by default) ==================== -->
+    <div id="admin-toolbar" class="admin-toolbar" style="display: none;">
+        <div class="admin-toolbar-inner">
+            <span><i class="fa-solid fa-shield-halved"></i> Admin Modu Aktif</span>
+            <button id="admin-logout" class="btn-admin-logout"><i class="fa-solid fa-right-from-bracket"></i> Çıkış
+                Yap</button>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content">
+
+        <!-- ===== HERO SECTION ===== -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-branding scroll-reveal">
+                    <img src="assets/logo-light.png" alt="Hacettepe AI Club Logo" class="hero-logo-icon">
+                    <div class="hero-title-row">
+
+                        <h1 class="hero-title">
+                            Hacettepe Üniversitesi<br>
+                            <span class="hero-highlight">Yapay Zekâ Topluluğu</span>
+                        </h1>
+
+                    </div>
+                </div>
+                <div class="hero-subtitle scroll-reveal">
+                    <h3> <br> Satır satır kod yazandan sadece merak duyana #AI4All</h3>
+                    <h5>Disiplinlerarası bir bağ kuruyor ve geleceğin teknolojisini hep birlikte öğreniyoruz.</h5>
+                </div>
+                <div class="hero-buttons scroll-reveal">
+                    <a href="#hakkimizda" class="btn-primary btn-glow">
+                        <i class="fa-solid fa-rocket"></i> Keşfet
+                    </a>
+                    <a href="https://topluluklar.hacettepe.edu.tr/topluluklar/yapay-zeka-toplulugu" target="_blank"
+                        rel="noopener" class="btn-secondary">
+                        <i class="fa-solid fa-user-plus"></i> Aramıza Katıl
+                    </a>
+                </div>
+                <div class="hero-stats scroll-reveal">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1000">0</span>+
+                        <span class="stat-label">Aktif Üyeler</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="15">0</span>+
+                        <span class="stat-label">Etkinlikler</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="5">0</span>+
+                        <span class="stat-label">Projeler</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="4">0</span>+
+                        <span class="stat-label">Yarışmalar</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#hakkimizda" class="hero-scroll-indicator">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- ===== HAKKIMIZDA ===== -->
+        <section id="hakkimizda" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Hakkımızda</h2>
+                <p class="section-subtitle scroll-reveal">Hacettepe Üniversitesi'nin yapay zekâ odaklı tek öğrenci
+                    topluluğuyuz!
+                </p>
+                <div class="about-grid">
+                    <!-- Row 1: Left Column (Intro Text) -->
+                    <div class="about-text scroll-reveal">
+                        <p>Hacettepe Üniversitesi Yapay Zekâ Topluluğu,<br> üniversitemizin Bilgisayar Mühendisliği
+                            bölümü
+                            bünyesinde <br> 2018-2019 eğitim öğretim yılında faaliyete geçmiş bir topluluktur.</p>
+                        <p>Topluluğumuz teknik etkinlikler çerçevesinde yapay zeka alanında çeşitli dersler vermiş,
+                            sektörde yapay zeka üzerine çalışan uzmanlarla söyleşiler yapmış, programlama yarışmaları
+                            düzenlemiş ve bu sektörde alanında öncü kişiler ile röportajlara imza atmış bir topluluktur.
+                        </p>
+                        <p>Topluluğumuz etkinlik portföyünü ve üye ağını genişletmek için Yönetim Kurulumuz ile
+                            durmaksızın büyük bir özveri ile çalışmaktadır. Her sene artan yeni üye alımlarımız ve
+                            Yönetim Kurulu Üyeleri
+                            arasında yapılan seçimler ile yenilenen kadromuz sayesinde aktif ve üretken yapımız her
+                            geçen gün
+                            katlanarak
+                            artmaktadır.
+                        </p>
+                        <p>Tüm bu faaliyetlerimizin ana hedefi; başta Hacettepe öğrencileri olmak üzere, ulusal ve
+                            uluslararası
+                            çapta yapay zekânın efektif kullanım bilincini ve farkındalığını oluşturmaktır.
+                        </p>
+                    </div>
+
+                    <!-- Row 1: Right Column (Features Cards) -->
+                    <div class="about-features scroll-reveal">
+                        <div class="feature-item">
+                            <i class="fa-solid fa-brain"></i>
+                            <div>
+                                <h4>Yapay Zekâ Eğitimleri</h4>
+                                <p>Temellerden ileri seviyeye ML, DL, NLP ve Python eğitimleri</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-code"></i>
+                            <div>
+                                <h4>Projeler</h4>
+                                <p>Gerçek dünya problemlerine yönelik AI projeleri geliştirme ve yarışmalara katılma
+                                </p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-handshake"></i>
+                            <div>
+                                <h4>İş Birlikleri</h4>
+                                <p>Alanında lider şirketler ile networking, kariyer
+                                <p> ve staj fırsatları </p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fa-solid fa-users"></i>
+                            <div>
+                                <h4>Güçlü Bir Topluluk</h4>
+                                <p>Farklı disiplinlerden hem meraklı hem tutkulu hem de sürekli kendini geliştiren
+                                    öğrencilerle büyüyen bir aile</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Left Column (YouTube Video) -->
+                    <div class="about-video scroll-reveal">
+                        <h3 class="about-row-title">Yayındaki Son Videomuz👇</h3>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/R1TZDe21SGk" title="YouTube video player"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Right Column (Goals & Objectives - Right Aligned) -->
+                    <div class="about-goals scroll-reveal">
+                        <h3 class="about-row-title" style="color: var(--glow);">Topluluğun Amaç ve Hedefleri</h3>
+                        <p>Topluluğumuz genel anlamda yapay zekâ ve bilişim sektörünün ilgi duyulan ve talep edilen
+                            alanlarıyla ilgili oluşturabilen imkânlar dahilinde faaliyet göstermektedir. Bu alanların
+                            içeriklerini, yapay zekaya ilgi duyan ve bu konuda kariyer hedefi olan öğrenci
+                            arkadaşlarımız tarafından eğitim ve kariyer hayatları ile harmanlayacak hâle getirmeyi ve bu
+                            hedefte eğitimler, etkinlikler, söyleşiler düzenleyip grup çalışmalarıyla faaliyetler
+                            göstererek öğrencilerin hedeflediği yerlere gelmelerinde büyük katkılar sağlamayı amaçlar.
+                        </p>
+                        <p>Hedefimiz ulaşabildiğimiz herkese yapay zekayı tanıtmak ve bunu gerçek hayatta nasıl
+                            faaliyete geçirebileceklerini anlatmak, her geçen yıl kendimize bir şeyler katıp daha da
+                            büyümektedir. Yönetim ve denetim kurulumuz ile her geçen gün amaç ve hedeflerimizi yerine
+                            getirmek için çalışıyoruz!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MİSYONUMUZ & VİZYONUMUZ ===== -->
+        <section id="misyon-vizyon" class="section section-alt">
+            <div class="container">
+                <div class="mv-grid">
+                    <!-- Left Column: Misyonumuz -->
+                    <div class="mv-block mv-left scroll-reveal">
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Misyonumuz</h2>
+                        <p class="mv-main">Topluluğun hedefi ulaşabileceği herkese yapay zekayı tanıtmak ve bunu gerçek
+                            hayatta nasıl faaliyete geçirebileceklerini anlatmak, sürekli bir şeyler katıp daha da
+                            büyütmektir.</p>
+                    </div>
+                    <!-- Right Column: Vizyonumuz -->
+                    <div class="mv-block mv-right scroll-reveal">
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Vizyonumuz</h2>
+                        <p class="mv-main">Hacettepe Üniversitesi'nden başlayarak Türkiye'nin dört bir yanına ilham
+                            veren, üretken, öncü ve sürdürülebilir bir yapay zekâ ekosistemi oluşturmak.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJELERİMİZ ===== -->
+        <section id="projeler" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Projelerimiz</h2>
+                <p class="section-subtitle scroll-reveal">Topluluğumuz bünyesinde geliştirilen yenilikçi yapay zekâ
+                    projeleri</p>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>AI Deer Asistan</h3>
+                            <p>Hacettepe AI Club bünyesinde geliştirilen, kampüs içi akıllı asistan ve bilgi yönetim
+                                sistemi.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>LLM</span>
+                                <span>RAG</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>DeepLearning Hub</h3>
+                            <p>Topluluk üyelerinin derin öğrenme modellerini eğitebileceği ve paylaşabileceği açık
+                                kaynak kodlu altyapı.</p>
+                            <div class="project-tech">
+                                <span>PyTorch</span>
+                                <span>Docker</span>
+                                <span>CUDA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Türkçe NLP Araçları</h3>
+                            <p>Türkçe metin analizi ve yapay zeka destekli Türkçe dil işleme kütüphanesi ve API
+                                servisleri.</p>
+                            <div class="project-tech">
+                                <span>Transformers</span>
+                                <span>FastAPI</span>
+                                <span>Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== YARIŞMALAR ===== -->
+        <section id="yarismalar" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Yarışmalar</h2>
+                <p class="section-subtitle scroll-reveal">Düzenlediğimiz ve katıldığımız yarışmalar</p>
+                <div class="competition-grid">
+                    <div class="competition-card scroll-reveal">
+
+                        <div class="competition-icon">
+                            <img src="assets/datathon-logo.jpg" alt="Datathon Logo" class="competition-logo-img">
+                        </div>
+                        <h3>Datathon</h3>
+                        <p>Türkiye genelinde yapay zekâ ve veri bilimine ilgi duyan üniversite öğrencilerini bir araya
+                            getirerek, katılımcıların belirli bir süre içinde verilen veri setleri üzerinde çalışarak
+                            problemleri çözmeye çalıştıkları analitik bir yarışmamızdır.</p>
+                    </div>
+                    <div class="competition-card scroll-reveal">
+
+                        <div class="competition-icon">
+                            <img src="assets/ideathon-logo.jpg" alt="Ideathon Logo" class="competition-logo-img">
+                        </div>
+                        <h3>Ideathon</h3>
+                        <p>IDEATHON, yaratıcı fikirlerin geliştirilmesi ve yenilikçi çözümler üretilmesi amacıyla
+                            düzenlediğimiz bir etkinliktir. Katılımcılar belirli bir tema veya problem üzerinde
+                            çalışarak projeler oluştururlar. Yarışma sürecinde mentörlük ve eğitim desteği verilir;
+                            belirlenen süre içinde takım halinde çalışarak projelerini jüriye sunarlar. En iyi fikirler
+                            ödüllendirilir.</p>
+                    </div>
+                    <div class="competition-card scroll-reveal">
+
+                        <div class="competition-icon">
+                            <img src="assets/case-maratonu-logo.png" alt="Case Maratonu Logo"
+                                class="competition-logo-img">
+                        </div>
+                        <h3>Case Maratonu</h3>
+                        <p>Gerçek Senaryolar, Gerçek Çözümler. Gençlerin yaratıcılıklarını ve problem çözme becerilerini
+                            geliştirmeyi amaçlayan yenilikçi bir vaka analizi etkinliğidir. Gerçek iş dünyası
+                            senaryolarından ilham alınarak hazırlanan vakaların, öğrenciler tarafından çözülmesi
+                            hedeflenmektedir. Kısa sürede çözüm üretmeleri beklenen caseler, birçok yönlü yetkinliği
+                            destekler. Geçtiğimiz iki yılda Akbank iş birliğiyle gerçekleştirdiğimiz Case Marathon, yeni
+                            partnerlerimizle devam edecektir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ETKİNLİKLER ===== -->
+        <section id="etkinlikler" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Etkinlikler</h2>
+                <p class="section-subtitle scroll-reveal">Düzenlediğimiz ses getiren etkinliklerimiz</p>
+                <div class="slider-container scroll-reveal">
+                    <button class="slider-arrow slider-arrow-left" id="event-slider-prev" aria-label="Önceki Etkinlik">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <div class="slider-wrapper">
+                        <div class="slider-track" id="event-slider-track">
+                            <!-- AI Fest -->
+                            <div class="slider-slide">
+                                <div class="event-banner">
+                                    <div class="event-banner-content">
+                                        <h3>AI FEST</h3>
+                                        <p style="text-align: left;">AI FEST; 2021 - 2025 yılları arasında
+                                            düzenlediğimiz; çeşitli firmaların
+                                            konuşmacı sağladığı, stant açtığı ve çeşitli workshoplar düzenleyip fuaye
+                                            alanında üyelerle networking yaptıkları bir etkinliğimizdir. <br> 2025
+                                            yılında
+                                            Aselsan ve Deepix iş birliği ile gerçekleştirdiğimiz etkinliğimizde
+                                            HAVELSAN'dan Ata Seren, Savunma Sanayi Başkanlığı'ndan Dr. Sefa Akça,
+                                            ULAK'tan Dr. Ali Berkol gibi değerli konuşmacıları ağırladık. <br>
+                                            Gelecekteki
+                                            etkinliklerimizde de alanında uzman isimleri ağırlamayı hedefliyoruz.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BİR FİNCAN YAPAY ZEKA -->
+                            <div class="slider-slide">
+                                <div class="event-banner">
+                                    <div class="event-banner-content">
+                                        <h3>BİR FİNCAN YAPAY ZEKA</h3>
+                                        <p style="text-align: left;">Meraklı öğrencilerin, sektörden deneyimli bir
+                                            konuşmacıyla
+                                            buluştuğu ve çay, kahve eşliğinde belirli bir başlık altında tartışmalar
+                                            yaptığımız "Coffee Talk" etkinliğimizdir.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CODEFLIX & CHILL -->
+                            <div class="slider-slide">
+                                <div class="event-banner">
+                                    <div class="event-banner-content">
+                                        <h3>CODEFLIX &amp; CHILL</h3>
+                                        <p style="text-align: left;">Codeflix and Chill; teknoloji, kodlama, öğrenme ve
+                                            eğlencenin buluştuğu en
+                                            uzun gece boyunca süren bir
+                                            etkinliktir! Film izleyebilir, bireysel çalışma zamanı ile
+                                            kod yazabilir, ders çalışabilir, yoga ve egzersiz yaparak enerjini
+                                            toparlayabilir, hem üretken hem de keyifli bir zaman geçirebilirsin! Kodlama
+                                            ve eğlenceyi bir araya getiren bu etkinliğe hepinizi bekliyoruz.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- DÖNEM PARTİLERİ -->
+                            <div class="slider-slide">
+                                <div class="event-banner">
+                                    <div class="event-banner-content">
+                                        <h3>DÖNEM PARTİLERİ</h3>
+                                        <p style="text-align: left;">Dönem başı tanışma ve dönem sonu kutlama
+                                            partileriyle yorgunluk atıp,
+                                            topluluk
+                                            üyeleriyle bağlarımızı güçlendiriyoruz.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="slider-arrow slider-arrow-right" id="event-slider-next"
+                        aria-label="Sonraki Etkinlik">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EĞİTİM VE PROJELERİMİZ ===== -->
+        <section id="egitimler" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Eğitim ve Projelerimiz</h2>
+                <div class="about-text scroll-reveal" style="max-width: 900px; margin: 0 auto; text-align: left;">
+                    <p>Hacettepe AI Club olarak, bu dönem bir çok eğitim düzenledik. Günümüzün en populer alanları olan
+                        Python ve Machine Learning eğitimlerini 5 hafta boyunca yüzyüze, ücretsiz ve sertifikalı olarak
+                        başarıyla gerçekleştirdik. Ayrıca öğrencilere sağladığımız soru-cevap ortamı sayesinde
+                        akıllarında soru kalmadan uygulamalı bir şekilde öğrenmelerini sağladık.</p>
+                    <p>Yapay Zeka Topluluğu başarıyla düzenlediğimiz Aftercode'umuzda Prompt Eğitimi, N8N Eğitimi ve
+                        Girişimcilik Eğitimimizi başarıyla tamamladık.</p>
+                    <p>Eğitimlerimizi sadece yüz yüze eğitimlerle sınırlı tutmayarak, ögrencilerin bireysel
+                        çalışmalarına devam etmelerini sağlamak amacıyla çevrimiçi yayınlar da düzenledik. Bu yıl,
+                        YouTube'da "Yapay Zeka ve Vibe Coding" ve "Vibe Coding ile sıfırdan Suno AI Müzik Uygulaması
+                        Geliştirme" Youtube kanalımızın içerik havuzunu genişlettik.</p>
+                    <h3
+                        style="color: var(--glow); font-family: var(--font-heading); margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem;">
+                        AR-GE ve Yarışmalar</h3>
+                    <p>Ayrıca çeşitli yarışmalar kapsamında AR-GE takımları oluşturuyoruz. Takımlarımızın başarıları:
+                    </p>
+                    <ul
+                        style="list-style-type: none; padding: 0; margin: 20px 0; color: var(--text-secondary); text-align: left; display: inline-block;">
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-trophy"
+                                style="color: var(--glow); margin-right: 10px;"></i> Turkcell Yarının Teknoloji
+                            Liderleri yarışması (2 derece)</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-trophy"
+                                style="color: var(--glow); margin-right: 10px;"></i> Vodafone Bi' Düşünsene yarışması (1
+                            finalist takım)</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-trophy"
+                                style="color: var(--glow); margin-right: 10px;"></i> IYACA Hackathon (1 derece)</li>
+                        <li style="margin-bottom: 10px;"><i class="fa-solid fa-trophy"
+                                style="color: var(--glow); margin-right: 10px;"></i> Her yıl TEKNOFEST'te finalist pek
+                            çok takımımız oluyor.</li>
+                    </ul>
+                    <p>Tüm bu faaliyetlerimizle topluluğumuzu en iyi şekilde temsil etmeyi amaçlıyoruz.</p>
+                </div>
+                <div class="admin-only" style="display: none; text-align: center; margin-top: 30px;">
+                    <button id="add-training-btn" class="btn-primary"><i class="fa-solid fa-plus"></i> Eğitim
+                        Ekle</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TAKVİM ===== -->
+        <section id="takvim" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Takvim</h2>
+                <p class="section-subtitle scroll-reveal">Planlanan eğitimler, yarışmalar ve etkinlikler</p>
+                <div class="calendar-wrapper scroll-reveal">
+                    <table class="calendar-table">
+                        <thead>
+                            <tr>
+                                <th>Etkinlik Adı</th>
+                                <th>Tür</th>
+                                <th>Tarih</th>
+                                <th>Konum</th>
+                                <th>Takvime Ekle</th>
+                                <th class="admin-only-th" style="display: none;">İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendar-body">
+                            <tr>
+                                <td>AI Fest 2027</td>
+                                <td><span class="cal-badge cal-event">Etkinlik</span></td>
+                                <td>15 Aralık 2026</td>
+                                <td>Hacettepe Kültür Merkezi</td>
+                                <td>
+                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=AI+Fest+2027&dates=20261215T160000Z/20261215T180000Z&details=AI+Fest+2027+-+Hacettepe+AI+Club&location=Hacettepe+K%C3%BClt%C3%BCr+Merkezi"
+                                        target="_blank" rel="noopener" class="btn-cal-add" title="Takvime Ekle">
+                                        <i class="fa-solid fa-calendar-plus"></i>
+                                    </a>
+                                </td>
+                                <td class="admin-only-td" style="display: none;"></td>
+                            </tr>
+                            <tr>
+                                <td>Datathon 2027</td>
+                                <td><span class="cal-badge cal-competition">Yarışma</span></td>
+                                <td>20 Ocak 2027</td>
+                                <td>Mühendislik Fakültesi</td>
+                                <td>
+                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Datathon+2027&dates=20270120T160000Z/20270120T180000Z&details=Datathon+2027+-+Hacettepe+AI+Club&location=M%C3%BChendislik+Fak%C3%BCltesi"
+                                        target="_blank" rel="noopener" class="btn-cal-add" title="Takvime Ekle">
+                                        <i class="fa-solid fa-calendar-plus"></i>
+                                    </a>
+                                </td>
+                                <td class="admin-only-td" style="display: none;"></td>
+                            </tr>
+                            <tr>
+                                <td>Python ile AI'ya Giriş</td>
+                                <td><span class="cal-badge cal-training">Eğitim</span></td>
+                                <td>1 Ekim 2026</td>
+                                <td>Online (Zoom)</td>
+                                <td>
+                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Python+ile+AI%27ya+Giri%C5%9F&dates=20261001T160000Z/20261001T180000Z&details=Python+ile+AI%27ya+Giri%C5%9F+-+Hacettepe+AI+Club&location=Online+%28Zoom%29"
+                                        target="_blank" rel="noopener" class="btn-cal-add" title="Takvime Ekle">
+                                        <i class="fa-solid fa-calendar-plus"></i>
+                                    </a>
+                                </td>
+                                <td class="admin-only-td" style="display: none;"></td>
+                            </tr>
+                            <tr>
+                                <td>Ideathon 2027</td>
+                                <td><span class="cal-badge cal-competition">Yarışma</span></td>
+                                <td>15 Mart 2027</td>
+                                <td>Hacettepe Kongre Merkezi</td>
+                                <td>
+                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ideathon+2027&dates=20270315T160000Z/20270315T180000Z&details=Ideathon+2027+-+Hacettepe+AI+Club&location=Hacettepe+Kongre+Merkezi"
+                                        target="_blank" rel="noopener" class="btn-cal-add" title="Takvime Ekle">
+                                        <i class="fa-solid fa-calendar-plus"></i>
+                                    </a>
+                                </td>
+                                <td class="admin-only-td" style="display: none;"></td>
+                            </tr>
+                            <tr>
+                                <td>Derin Öğrenme Bootcamp</td>
+                                <td><span class="cal-badge cal-training">Eğitim</span></td>
+                                <td>10 Kasım 2026</td>
+                                <td>Bilgisayar Müh. Lab</td>
+                                <td>
+                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Derin+%C3%96%C4%9Frenme+Bootcamp&dates=20261110T160000Z/20261110T180000Z&details=Derin+%C3%96%C4%9Frenme+Bootcamp+-+Hacettepe+AI+Club&location=Bilgisayar+M%C3%BCh.+Lab"
+                                        target="_blank" rel="noopener" class="btn-cal-add" title="Takvime Ekle">
+                                        <i class="fa-solid fa-calendar-plus"></i>
+                                    </a>
+                                </td>
+                                <td class="admin-only-td" style="display: none;"></td>
+                            </tr>
+                            <tr>
+                                <td>Vibethon 2027</td>
+                                <td><span class="cal-badge cal-competition">Yarışma</span></td>
+                                <td>5 Nisan 2027</td>
+                                <td>Hacettepe Teknokent</td>
+                                <td>
+                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vibethon+2027&dates=20270405T160000Z/20270405T180000Z&details=Vibethon+2027+-+Hacettepe+AI+Club&location=Hacettepe+Teknokent"
+                                        target="_blank" rel="noopener" class="btn-cal-add" title="Takvime Ekle">
+                                        <i class="fa-solid fa-calendar-plus"></i>
+                                    </a>
+                                </td>
+                                <td class="admin-only-td" style="display: none;"></td>
+                            </tr>
+                            <tr>
+                                <td>AI Career Day</td>
+                                <td><span class="cal-badge cal-event">Etkinlik</span></td>
+                                <td>5 Mayıs 2027</td>
+                                <td>Hacettepe Kongre Merkezi</td>
+                                <td>
+                                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=AI+Career+Day&dates=20270505T160000Z/20270505T180000Z&details=AI+Career+Day+-+Hacettepe+AI+Club&location=Hacettepe+Kongre+Merkezi"
+                                        target="_blank" rel="noopener" class="btn-cal-add" title="Takvime Ekle">
+                                        <i class="fa-solid fa-calendar-plus"></i>
+                                    </a>
+                                </td>
+                                <td class="admin-only-td" style="display: none;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Admin: Add Event Button -->
+                <div class="admin-only" style="display: none; text-align: center; margin-top: 30px;">
+                    <button id="add-event-btn" class="btn-primary"><i class="fa-solid fa-plus"></i> Etkinlik
+                        Ekle</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BİZ KİMİMİZ ===== -->
+        <section id="ekip" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Biz Kimiz?</h2>
+                <p class="section-subtitle scroll-reveal">2026 - 2027 Yönetim Kurulumuz</p>
+                <div class="team-grid flex-center">
+                    <!-- Başkan -->
+                    <div class="team-card team-card-president scroll-reveal">
+                        <div class="team-photo">
+                            <img src="./assets/images/team/alican_copur.jpg" alt="Alican Çopur"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="team-name">Alican Çopur</h3>
+                        <p class="team-role">Başkan</p>
+                        <a href="#" target="_blank" rel="noopener" class="team-linkedin" title="LinkedIn Profili"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <!-- Başkan Yardımcısı -->
+                    <div class="team-card scroll-reveal">
+                        <div class="team-photo">
+                            <img src="./assets/images/team/metehan_ozcan.jpg" alt="Metehan Özcan"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h3 class="team-name">Metehan Özcan</h3>
+                        <p class="team-role">Başkan Yardımcısı</p>
+                        <a href="#" target="_blank" rel="noopener" class="team-linkedin" title="LinkedIn Profili"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- KURUMSAL İLİŞKİLER KOMİSYONU -->
+                <div class="team-commission-group scroll-reveal">
+                    <h3 class="commission-group-title">KURUMSAL İLİŞKİLER KOMİSYONU</h3>
+                    <div class="team-grid flex-center">
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Selim Yaşar</h3>
+                            <p class="team-role">Direktör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-grid flex-center" style="margin-top: 32px;">
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Irmak Ateş</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Zeynep Kuralay</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Erva Ahsen Uzunbel</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EĞİTİM KOMİSYONU -->
+                <div class="team-commission-group scroll-reveal">
+                    <h3 class="commission-group-title">EĞİTİM KOMİSYONU</h3>
+                    <div class="team-grid flex-center">
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Ramazan Ulutürk</h3>
+                            <p class="team-role">Direktör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-grid flex-center" style="margin-top: 32px;">
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Çağrı Orkun Okatan</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Hanım Nisa Paylan</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEDYA TANITIM KOMİSYONU -->
+                <div class="team-commission-group scroll-reveal">
+                    <h3 class="commission-group-title">MEDYA TANITIM KOMİSYONU</h3>
+                    <div class="team-grid flex-center">
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Gülçin Eroğlu</h3>
+                            <p class="team-role">Direktör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-grid flex-center" style="margin-top: 32px;">
+                        <div class="team-card">
+                            <div class="team-photo"><img src="./assets/images/team/elife_simsek.png" alt="Elife Şimşek"
+                                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                            <h3 class="team-name">Elife Şimşek</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Ayşe Sena Dikkartın</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-photo"><img src="./assets/images/team/elif_unal.jpg" alt="Elif Ünal"
+                                    style="width: 100%; height: 100%; object-fit: cover;"></div>
+                            <h3 class="team-name">Elif Ünal</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AR-GE KOMİSYONU -->
+                <div class="team-commission-group scroll-reveal">
+                    <h3 class="commission-group-title">AR-GE KOMİSYONU</h3>
+                    <div class="team-grid flex-center">
+                        <div class="team-card">
+                            <div class="team-photo"><img src="./assets/images/team/furkan_tasatan.jpg"
+                                    alt="Furkan Taşatan" style="width: 100%; height: 100%; object-fit: cover;"></div>
+                            <h3 class="team-name">Furkan Taşatan</h3>
+                            <p class="team-role">Direktör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-photo"><img src="./assets/images/team/metin_bera.jpg"
+                                    alt="Metin Bera Süslü" style="width: 100%; height: 150%; object-fit: cover;">
+                            </div>
+                            <h3 class="team-name">Metin Bera Süslü</h3>
+                            <p class="team-role">Direktör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-grid flex-center" style="margin-top: 32px;">
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Ataberk Özşaşal</h3>
+                            <p class="team-role">Koordinatör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ORGANİZASYON KOMİSYONU -->
+                <div class="team-commission-group scroll-reveal">
+                    <h3 class="commission-group-title">ORGANİZASYON KOMİSYONU</h3>
+                    <div class="team-grid flex-center">
+                        <div class="team-card">
+                            <div class="team-photo"><img src="./assets/images/team/tuna_tokmakli.jpg"
+                                    alt="Tuna Tokmaklı" style="width: 100%; height: 200%; object-fit: cover;"></div>
+                            <h3 class="team-name">Tuna Tokmaklı</h3>
+                            <p class="team-role">Direktör</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DENETİM KURULU -->
+                <div class="team-commission-group scroll-reveal">
+                    <h3 class="commission-group-title">DENETİM KURULU</h3>
+                    <div class="team-grid flex-center">
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Süeda Horzum</h3>
+                            <p class="team-role">Denetim Kurulu Üyesi</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Gülsüm Topaloğlu</h3>
+                            <p class="team-role">Denetim Kurulu Üyesi</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-photo">
+                                <div class="team-photo-placeholder"><i class="fa-solid fa-user"></i></div>
+                            </div>
+                            <h3 class="team-name">Ceren Köklü</h3>
+                            <p class="team-role">Denetim Kurulu Üyesi</p>
+                            <a href="#" target="_blank" rel="noopener" class="team-linkedin"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- ===== KOMİSYONLAR ===== -->
+        <section id="komisyonlar" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Komisyonlar</h2>
+                <p class="section-subtitle scroll-reveal">Topluluğumuzun çalışma komisyonları</p>
+                <div class="commission-grid">
+                    <div class="commission-card scroll-reveal">
+                        <div class="commission-card-inner">
+                            <div class="commission-card-front">
+                                <div class="commission-icon"><i class="fa-solid fa-flask"></i></div>
+                                <h3>Ar&amp;Ge Komisyonu</h3>
+                            </div>
+                            <div class="commission-card-back">
+                                <h3>Ar&amp;Ge Komisyonu</h3>
+                                <p>Yapay zekâ alanında araştırma projeleri yürütür, yeni teknolojileri takip eder ve
+                                    topluluk üyelerinin teknik becerilerini geliştirir. Paper reading grupları ve proje
+                                    geliştirme süreçlerini koordine eder.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commission-card scroll-reveal">
+                        <div class="commission-card-inner">
+                            <div class="commission-card-front">
+                                <div class="commission-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <h3>Eğitim Komisyonu</h3>
+                            </div>
+                            <div class="commission-card-back">
+                                <h3>Eğitim Komisyonu</h3>
+                                <p>Topluluk üyelerine yönelik eğitim programları planlar ve yürütür. Workshop'lar,
+                                    bootcamp'ler ve online eğitim serileri düzenleyerek üyelerin AI alanındaki
+                                    yetkinliklerini artırır.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commission-card scroll-reveal">
+                        <div class="commission-card-inner">
+                            <div class="commission-card-front">
+                                <div class="commission-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                                <h3>Organizasyon Komisyonu</h3>
+                            </div>
+                            <div class="commission-card-back">
+                                <h3>Organizasyon Komisyonu</h3>
+                                <p>Topluluğun tüm etkinliklerinin planlanması, organizasyonu ve yürütülmesinden
+                                    sorumludur. AI Fest, yarışmalar ve sosyal etkinliklerin lojistik süreçlerini
+                                    yönetir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commission-card scroll-reveal">
+                        <div class="commission-card-inner">
+                            <div class="commission-card-front">
+                                <div class="commission-icon"><i class="fa-solid fa-building"></i></div>
+                                <h3>Kurumsal İlişkiler Komisyonu</h3>
+                            </div>
+                            <div class="commission-card-back">
+                                <h3>Kurumsal İlişkiler Komisyonu</h3>
+                                <p>Şirketler, diğer üniversite toplulukları ve kurumlarla iş birliği ve sponsorluk
+                                    ilişkilerini yönetir. Kariyer fırsatları ve staj imkânlarını üyelere sunar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commission-card scroll-reveal">
+                        <div class="commission-card-inner">
+                            <div class="commission-card-front">
+                                <div class="commission-icon"><i class="fa-solid fa-hashtag"></i></div>
+                                <h3>Medya & Tanıtım Komisyonu</h3>
+                            </div>
+                            <div class="commission-card-back">
+                                <h3>Medya & Tanıtım Komisyonu</h3>
+                                <p>Topluluğun dijital varlığını yönetir. <br> Instagram, YouTube, LinkedIn, X ve TikTok
+                                    hesaplarının içerik üretimi, paylaşımları ve etkileşim stratejilerini
+                                    yürütür.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== İŞ BİRLİKLERİ ===== -->
+        <section id="isbirlikleri" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">İş Birliklerimiz</h2>
+                <p class="section-subtitle scroll-reveal">Birlikte çalıştığımız kurumlar ve şirketler</p>
+                <div class="partners-grid scroll-reveal">
+                    <div class="partners-track">
+                        <div class="partners-group">
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 1</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 2</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 3</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 4</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 5</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 6</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="partners-group" aria-hidden="true">
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 1</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 2</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 3</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 4</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 5</span>
+                                </div>
+                            </div>
+                            <div class="partner-item">
+                                <div class="partner-placeholder">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Partner 6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="partners-note scroll-reveal">İş birliği için bizimle iletişime geçebilirsiniz: <a
+                        href="mailto:contact@hacettepeaiclub.com">contact@hacettepeaiclub.com</a></p>
+            </div>
+        </section>
+
+        <!-- ===== GELECEK ETKİNLİKLER ===== -->
+        <section id="gelecek-etkinlikler" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Hbaerler ve Gelecek Etkinlikler</h2>
+                <p class="section-subtitle scroll-reveal">Yaklaşan etkinliklerimiz ve planlarımız</p>
+                <div class="upcoming-grid">
+                    <div class="upcoming-card scroll-reveal">
+                        <div class="upcoming-status">Yakında</div>
+                        <h3><i class="fa-solid fa-star"></i> AI Fest </h3>
+                        <p>Yapay zekâ festivali; konferanslar, workshoplar, networking ve daha fazlası. Farklı
+                            üniversitelerinde paydaşlığı olduğu
+                            en büyük etkinliğimiz.</p>
+                        <div class="upcoming-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Aralık 2026</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Tunçalp Özgen Kongre ve Konferans
+                                Merkezi</span>
+                        </div>
+                    </div>
+                    <div class="upcoming-card scroll-reveal">
+                        <div class="upcoming-status">Planlanan</div>
+                        <h3><i class="fa-solid fa-database"></i> Datathon </h3>
+                        <p>Büyük veri yarışması; partner şirketimiz tarafından verilecek olan gerçek dünya veri
+                            setlerini kullanarak en iyi modeli geliştirmek için
+                            ekibinle veya bireysel
+                            yarış.</p>
+                        <div class="upcoming-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Ocak 2027</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Mehmet Akif Ersoy K Salonu</span>
+                        </div>
+                    </div>
+                    <div class="upcoming-card scroll-reveal">
+                        <div class="upcoming-status">Planlanan</div>
+                        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Vibethon </h3>
+                        <p>AI araçları ile hızlı prototipleme yarışması; yaratıcılığını ve hızını göster.
+                        </p>
+                        <div class="upcoming-meta">
+                            <span><i class="fa-regular fa-calendar"></i> Nisan 2027</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Hacettepe Teknokent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="footer">
+        <div class="footer-stars">
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star text-glow-purple"></div>
+        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-about">
+                    <img src="assets/logo.png" alt="Hacettepe AI Club" class="footer-logo">
+                    <p>Hacettepe Yapay Zekâ Topluluğu. Satır satır kod yazandan sadece merak duyana
+                        #AI4All.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/hacettepeaiclub" target="_blank" rel="noopener"
+                            title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/c/hacettepeaiclub" target="_blank" rel="noopener"
+                            title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@hacettepeaiclub" target="_blank" rel="noopener"
+                            title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="https://x.com/hacettepeaiclub" target="_blank" rel="noopener" title="X"><i
+                                class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/company/hacettepeaiclub" target="_blank" rel="noopener"
+                            title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/hacettepeaiclub" target="_blank" rel="noopener" title="GitHub"><i
+                                class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Linkler</h4>
+                    <ul>
+                        <li><a href="#hakkimizda">Hakkımızda</a></li>
+                        <li><a href="#projeler">Projelerimiz</a></li>
+                        <li><a href="#yarismalar">Yarışmalar</a></li>
+                        <li><a href="#etkinlikler">Etkinlikler</a></li>
+                        <li><a href="#egitimler">Eğitimler</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Topluluk</h4>
+                    <ul>
+                        <li><a href="#ekip">Ekibimiz</a></li>
+                        <li><a href="#komisyonlar">Komisyonlar</a></li>
+                        <li><a href="#takvim">Takvim</a></li>
+                        <li><a href="#isbirlikleri">İş Birlikleri</a></li>
+                        <li><a href="https://topluluklar.hacettepe.edu.tr/topluluklar/yapay-zeka-toplulugu"
+                                target="_blank" rel="noopener">Üye Ol</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-envelope"></i> <a
+                                href="mailto:contact@hacettepeaiclub.com">contact@hacettepeaiclub.com</a></li>
+                        <li><i class="fa-solid fa-location-dot"></i> Beytepe Yerleşkesi, Ankara</li>
+                        <li><i class="fa-solid fa-university"></i> <a href="https://www.hacettepe.edu.tr"
+                                target="_blank" rel="noopener">Hacettepe Üniversitesi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hacettepe Yapay Zekâ Topluluğu | Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== CONTACT MODAL ==================== -->
+    <div id="contact-modal" class="modal-overlay genie-modal">
+        <div class="modal-content" id="contact-modal-content">
+            <button id="contact-close" class="modal-close" aria-label="Kapat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 class="modal-title"><i class="fa-solid fa-paper-plane"></i> Bizimle İletişime Geçin</h2>
+            <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-name">Ad *</label>
+                        <input type="text" id="contact-name" class="form-input" placeholder="Adınız" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-surname">Soyad *</label>
+                        <input type="text" id="contact-surname" class="form-input" placeholder="Soyadınız" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-phone">Telefon</label>
+                        <input type="tel" id="contact-phone" class="form-input" placeholder="05XX XXX XX XX">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">E-posta *</label>
+                        <input type="email" id="contact-email" class="form-input" placeholder="ornek@mail.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Mesajınız *</label>
+                    <textarea id="contact-message" class="form-textarea" placeholder="Mesajınızı buraya yazın..."
+                        rows="5" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="contact-cancel" class="btn-glossy-cancel">
+                        <i class="fa-solid fa-xmark"></i> İptal!
+                    </button>
+                    <button type="submit" id="contact-submit" class="btn-glossy-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Gönder
+                    </button>
+                </div>
+            </form>
+            <div id="contact-success" class="contact-success" style="display: none;">
+                <i class="fa-solid fa-circle-check"></i>
+                <p>Mesajınız başarıyla gönderildi!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ADMIN LOGIN MODAL ==================== -->
+    <div id="admin-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content modal-small">
+            <button id="admin-close" class="modal-close" aria-label="Kapat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 class="modal-title"><i class="fa-solid fa-shield-halved"></i> Admin Girişi</h2>
+            <form id="admin-login-form" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="admin-password">Şifre</label>
+                    <input type="password" id="admin-password" class="form-input" placeholder="Admin şifrenizi girin"
+                        required>
+                </div>
+                <button type="submit" class="btn-primary btn-full">
+                    <i class="fa-solid fa-right-to-bracket"></i> Giriş Yap
+                </button>
+                <p id="admin-error" class="form-error" style="display: none;">Yanlış şifre. Tekrar deneyin.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== ADD EVENT MODAL (Admin) ==================== -->
+    <div id="add-event-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content modal-small">
+            <button class="modal-close add-event-close" aria-label="Kapat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 class="modal-title"><i class="fa-solid fa-calendar-plus"></i> Yeni Etkinlik Ekle</h2>
+            <form id="add-event-form" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="event-name">Etkinlik Adı *</label>
+                    <input type="text" id="event-name" class="form-input" placeholder="Etkinlik adı" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-type">Tür *</label>
+                    <select id="event-type" class="form-input" required>
+                        <option value="">Seçiniz</option>
+                        <option value="Etkinlik">Etkinlik</option>
+                        <option value="Yarışma">Yarışma</option>
+                        <option value="Eğitim">Eğitim</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="event-date">Tarih *</label>
+                    <input type="text" id="event-date" class="form-input" placeholder="ör: 15 Aralık 2026" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-location">Konum *</label>
+                    <input type="text" id="event-location" class="form-input" placeholder="Etkinlik konumu" required>
+                </div>
+                <button type="submit" class="btn-primary btn-full">
+                    <i class="fa-solid fa-plus"></i> Ekle
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== ADD TRAINING MODAL (Admin) ==================== -->
+    <div id="add-training-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content modal-small">
+            <button class="modal-close add-training-close" aria-label="Kapat">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h2 class="modal-title"><i class="fa-solid fa-graduation-cap"></i> Yeni Eğitim Ekle</h2>
+            <form id="add-training-form" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="training-title">Eğitim Başlığı *</label>
+                    <input type="text" id="training-title" class="form-input" placeholder="Eğitim başlığı" required>
+                </div>
+                <div class="form-group">
+                    <label for="training-desc">Açıklama *</label>
+                    <textarea id="training-desc" class="form-textarea" placeholder="Eğitim açıklaması" rows="3"
+                        required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="training-date">Tarih</label>
+                    <input type="text" id="training-date" class="form-input" placeholder="ör: 1 Ekim 2026">
+                </div>
+                <div class="form-group">
+                    <label for="training-instructor">Eğitmen</label>
+                    <input type="text" id="training-instructor" class="form-input" placeholder="Eğitmen adı">
+                </div>
+                <button type="submit" class="btn-primary btn-full">
+                    <i class="fa-solid fa-plus"></i> Ekle
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== SCROLL TO TOP ==================== -->
+    <button id="scroll-top" class="scroll-top" aria-label="Yukarı Çık" title="Yukarı Çık">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="js/neural-bg.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>
