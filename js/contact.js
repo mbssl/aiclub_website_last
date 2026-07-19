@@ -62,101 +62,38 @@ const fields = {
   message: document.getElementById('contact-message'),
 };
 
-// Store reference to the trigger button that opened the modal
-let lastTriggerElement = null;
-
-// ---------------------------------------------------------------------------
-//  Genie Effect Helpers
-// ---------------------------------------------------------------------------
-
-/**
- * Computes the transform-origin for the modal content so the genie effect
- * appears to expand from / collapse back to the trigger button.
- * @param {HTMLElement} triggerEl - The button that was clicked
- */
-function setGenieOrigin(triggerEl) {
-  if (!triggerEl || !contactContent) return;
-
-  const triggerRect = triggerEl.getBoundingClientRect();
-  const modalRect   = contactContent.getBoundingClientRect();
-
-  // If modal hasn't been laid out yet, use viewport center as fallback
-  const modalWidth  = modalRect.width  || window.innerWidth * 0.5;
-  const modalHeight = modalRect.height || window.innerHeight * 0.6;
-
-  // Center of the trigger button in viewport coordinates
-  const triggerCenterX = triggerRect.left + triggerRect.width  / 2;
-  const triggerCenterY = triggerRect.top  + triggerRect.height / 2;
-
-  // Modal will be centered in viewport (flex center)
-  const modalLeft = (window.innerWidth  - modalWidth)  / 2;
-  const modalTop  = (window.innerHeight - modalHeight) / 2;
-
-  // Transform-origin relative to the modal-content element (in %)
-  const originX = ((triggerCenterX - modalLeft) / modalWidth)  * 100;
-  const originY = ((triggerCenterY - modalTop)  / modalHeight) * 100;
-
-  contactContent.style.setProperty('--genie-x', `${originX}%`);
-  contactContent.style.setProperty('--genie-y', `${originY}%`);
-}
-
 // ---------------------------------------------------------------------------
 //  Modal Open / Close
 // ---------------------------------------------------------------------------
 
-/** Opens the contact modal with a genie effect animation. */
-function openModal(triggerEl) {
-  lastTriggerElement = triggerEl || null;
-
-  // Calculate origin before showing
-  setGenieOrigin(triggerEl);
-
+/** Opens the contact modal. */
+function openModal() {
   // Show the modal
   contactModal.classList.add('active');
-  contactModal.classList.remove('closing');
   document.body.classList.add('modal-open');
 
   // Focus the first input for accessibility
-  setTimeout(() => fields.name?.focus(), 350);
+  setTimeout(() => fields.name?.focus(), 250);
 }
 
-/** Closes the contact modal with a reverse genie effect animation. */
+/** Closes the contact modal. */
 function closeModal() {
-  // Recalculate origin so it flies back to the trigger button
-  if (lastTriggerElement) {
-    setGenieOrigin(lastTriggerElement);
-  }
-
   contactModal.classList.remove('active');
-  contactModal.classList.add('closing');
-
-  const onEnd = () => {
-    contactModal.classList.remove('closing');
-    document.body.classList.remove('modal-open');
-    contactContent.removeEventListener('transitionend', onEnd);
-  };
-
-  contactContent.addEventListener('transitionend', onEnd);
-
-  // Fallback if transitionend never fires
-  setTimeout(() => {
-    contactModal.classList.remove('closing');
-    document.body.classList.remove('modal-open');
-  }, 600);
+  document.body.classList.remove('modal-open');
 }
 
 // Trigger buttons
 contactTriggers.forEach((trigger) => {
   trigger.addEventListener('click', (e) => {
     e.preventDefault();
-    openModal(trigger);
+    openModal();
   });
 });
 
 // Close button (X)
 contactClose?.addEventListener('click', closeModal);
 
-// İptal (Cancel) button — genie close
+// İptal (Cancel) button
 contactCancel?.addEventListener('click', closeModal);
 
 // Click on overlay (outside the form) to close

@@ -500,7 +500,7 @@ button {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  padding: 80px 0 40px;
+  padding: 0 0 40px;
 }
 
 #side-menu.open {
@@ -1647,6 +1647,94 @@ button {
   transition: transform var(--transition-base);
 }
 
+#contact-modal .modal-content {
+  position: relative;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+#contact-modal .modal-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 18, 40, 0.35);
+  /* 65% transparent */
+  backdrop-filter: blur(40px) saturate(120%);
+  -webkit-backdrop-filter: blur(40px) saturate(120%);
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Contact modal light theme overrides */
+body.past-hero #contact-modal .modal-content {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+  color: var(--text-primary);
+}
+
+body.past-hero #contact-modal .modal-content::before {
+  background: rgba(255, 255, 255, 0.35);
+  /* 65% transparent */
+  backdrop-filter: blur(40px) saturate(120%);
+  -webkit-backdrop-filter: blur(40px) saturate(120%);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+body.past-hero #contact-modal .modal-title {
+  color: var(--text-primary);
+}
+
+body.past-hero #contact-modal label {
+  color: var(--text-secondary);
+}
+
+body.past-hero #contact-modal .form-input,
+body.past-hero #contact-modal .form-textarea {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(15, 23, 42, 0.15);
+  color: var(--text-primary);
+}
+
+body.past-hero #contact-modal .form-input::placeholder,
+body.past-hero #contact-modal .form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+body.past-hero #contact-modal .form-input:focus,
+body.past-hero #contact-modal .form-textarea:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--glow);
+  box-shadow: 0 0 0 3px rgba(2, 136, 209, 0.15);
+}
+
+body.past-hero #contact-modal .modal-close {
+  color: var(--text-secondary);
+}
+
+body.past-hero #contact-modal .modal-close:hover {
+  background: rgba(15, 23, 42, 0.05);
+  color: var(--text-primary);
+}
+
+/* Cancel Button Outer Cover */
+.cancel-btn-container {
+  padding: 4px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+}
+
+body.past-hero .cancel-btn-container {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
 #admin-modal.active .modal-content,
 .modal-overlay.active .modal-content {
   transform: scale(1) translateY(0);
@@ -2393,6 +2481,10 @@ body.admin-mode .admin-delete-btn:hover {
     padding: 12px 16px;
   }
 
+  #logo-img {
+    height: 35px;
+  }
+
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -2483,12 +2575,8 @@ body.admin-mode .admin-delete-btn:hover {
     padding: 10px 12px;
   }
 
-  .header-logo {
-    font-size: 1rem;
-  }
-
-  .header-logo img {
-    height: 32px;
+  #logo-img {
+    height: 28px;
   }
 
   .header-right {
@@ -2756,6 +2844,46 @@ select:focus-visible {
   letter-spacing: 0.3px;
 }
 
+.nav-announcements-link {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  margin-left: 12px;
+  border: 1px solid transparent;
+}
+
+.nav-announcements-link:hover {
+  color: var(--glow);
+  background: rgba(79, 195, 247, 0.05);
+  border-color: rgba(79, 195, 247, 0.1);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .nav-announcements-link {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    margin-left: 6px;
+  }
+}
+
+body.past-hero .nav-announcements-link {
+  color: #ffffff;
+}
+
+body.past-hero .btn-contact {
+  color: #ffffffc4;
+}
+
+body.past-hero .btn-theme-toggle {
+  color: #ffffffc4;
+}
+
 /* --- Contact Button --- */
 .btn-contact {
   display: inline-flex;
@@ -2844,9 +2972,20 @@ select:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px 24px;
-  border-bottom: 1px solid var(--glass-border);
+  padding: 20px 24px;
+  background: #0a1228;
+  /* Always dark blue */
+  border-bottom: 1px solid rgba(79, 195, 247, 0.15);
   margin-bottom: 16px;
+}
+
+.side-menu-header .side-menu-close {
+  color: #90a4ae;
+}
+
+.side-menu-header .side-menu-close:hover {
+  color: var(--glow);
+  background: rgba(79, 195, 247, 0.1);
 }
 
 .side-menu-logo {
@@ -3219,9 +3358,9 @@ body.admin-mode .admin-only-td {
 /* --- Mission / Vision --- */
 .mv-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  max-width: 1200px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
@@ -3236,7 +3375,13 @@ body.admin-mode .admin-only-td {
 
 .mv-right {
   text-align: left;
-  margin-left: 100px;
+  margin-left: 0;
+  /* Reset asymmetrical margin to rely on grid gaps */
+}
+
+.mv-block .section-title::after {
+  left: 0;
+  transform: none;
 }
 
 .mv-block .mv-main {
@@ -3603,9 +3748,9 @@ body.admin-mode .admin-only-td {
 }
 
 .cal-competition {
-  color: #ff5722;
-  background: rgba(255, 87, 34, 0.1);
-  border: 1px solid rgba(255, 87, 34, 0.25);
+  color: #d89c00;
+  background: rgba(216, 156, 0, 0.1);
+  border: 1px solid rgba(216, 156, 0, 0.25);
 }
 
 .cal-training {
@@ -3816,12 +3961,27 @@ body.admin-mode .admin-only-td {
 
 /* --- Upcoming Grid --- */
 .upcoming-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  display: flex;
+  overflow-x: auto;
   gap: 30px;
+  /* Edge-to-edge full width */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 20px max(24px, calc((100vw - var(--container-max)) / 2));
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.upcoming-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .upcoming-card {
+  flex: 0 0 calc(33.333% - 20px);
+  min-width: 320px;
+  max-width: 450px;
+  scroll-snap-align: center;
   position: relative;
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
@@ -4038,61 +4198,15 @@ body.admin-mode .admin-only-td {
   animation: fade-in-up 0.3s ease;
 }
 
-/* --------------------------------------------------------------------------
-   GENIE EFFECT MODAL
-   -------------------------------------------------------------------------- */
-.genie-modal {
-  /* Override default display:none — use opacity/visibility instead */
-  display: flex !important;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.1s ease, visibility 0.1s ease;
-}
 
-.genie-modal .modal-content {
-  --genie-x: 50%;
-  --genie-y: 0%;
-  transform-origin: var(--genie-x) var(--genie-y);
-  transform: scale(0.05) scaleY(0.15);
-  opacity: 0;
-  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
-    opacity 0.35s ease;
-  filter: blur(4px);
-}
-
-.genie-modal.active {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.15s ease, visibility 0.15s ease;
-}
-
-.genie-modal.active .modal-content {
-  transform: scale(1) scaleY(1);
-  opacity: 1;
-  filter: blur(0);
-}
-
-/* Closing animation — reverse genie back to the trigger button */
-.genie-modal.closing {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.1s ease 0.45s, visibility 0.1s ease 0.45s;
-}
-
-.genie-modal.closing .modal-content {
-  transform: scale(0.05) scaleY(0.15);
-  opacity: 0;
-  filter: blur(4px);
-  transition: transform 0.5s cubic-bezier(0.5, 0, 0.75, 0),
-    opacity 0.4s ease 0.1s,
-    filter 0.4s ease;
-}
 
 /* --------------------------------------------------------------------------
    GLOSSY BUTTONS (Gönder / İptal)
    -------------------------------------------------------------------------- */
 .form-actions {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
   margin-top: 12px;
 }
