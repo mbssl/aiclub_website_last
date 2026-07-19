@@ -2884,6 +2884,12 @@ body.past-hero .btn-theme-toggle {
   color: #ffffffc4;
 }
 
+body.past-hero #hamburger-btn span,
+body.past-hero #hamburger-btn span::before,
+body.past-hero #hamburger-btn span::after {
+  background: #ffffffc4;
+}
+
 /* --- Contact Button --- */
 .btn-contact {
   display: inline-flex;
@@ -3101,6 +3107,20 @@ body.past-hero .btn-theme-toggle {
 
 .btn-admin-logout:hover {
   background: rgba(239, 83, 80, 0.2);
+}
+
+/* Offset navbar and body elements when admin mode toolbar is active */
+body.admin-mode {
+  padding-top: 40px;
+}
+
+body.admin-mode #header {
+  top: 40px;
+}
+
+body.admin-mode #side-menu {
+  top: 40px;
+  height: calc(100% - 40px);
 }
 
 /* --- Admin Only Elements --- */

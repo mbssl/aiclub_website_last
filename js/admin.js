@@ -37,6 +37,9 @@ function openAdminModal() {
   adminModal?.classList.add('active');
   document.body.classList.add('modal-open');
   adminPassword?.focus();
+
+  // Close hamburger side menu by simulating click on close button to reset app state (like body overflow)
+  document.getElementById('side-menu-close')?.click();
 }
 
 /** Closes the admin login modal. */
@@ -73,6 +76,8 @@ document.addEventListener('keydown', (e) => {
     closeAdminModal();
   }
 });
+
+document.getElementById('admin-logout')?.addEventListener('click', deactivateAdminMode);
 
 // ---------------------------------------------------------------------------
 //  Authentication
@@ -123,25 +128,20 @@ function deactivateAdminMode() {
 //  Admin Toolbar
 // ---------------------------------------------------------------------------
 
-/** Creates and inserts a fixed admin toolbar at the top of the page. */
+/** Shows the fixed admin toolbar at the top of the page. */
 function createAdminToolbar() {
-  if (document.getElementById('admin-toolbar')) return;
-
-  const toolbar = document.createElement('div');
-  toolbar.id = 'admin-toolbar';
-  toolbar.innerHTML = `
-    <span class="admin-toolbar__label">🔒 Admin Modu Aktif</span>
-    <button id="admin-logout-btn" class="admin-toolbar__btn">Çıkış Yap</button>
-  `;
-  document.body.prepend(toolbar);
-
-  document.getElementById('admin-logout-btn')
-    ?.addEventListener('click', deactivateAdminMode);
+  const toolbar = document.getElementById('admin-toolbar');
+  if (toolbar) {
+    toolbar.style.display = 'block';
+  }
 }
 
-/** Removes the admin toolbar from the DOM. */
+/** Hides the admin toolbar. */
 function removeAdminToolbar() {
-  document.getElementById('admin-toolbar')?.remove();
+  const toolbar = document.getElementById('admin-toolbar');
+  if (toolbar) {
+    toolbar.style.display = 'none';
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -151,7 +151,7 @@ function removeAdminToolbar() {
 /** Injects "Add" buttons into the calendar and training sections. */
 function injectAdminButtons() {
   // Calendar section
-  const calendarSection = document.querySelector('#calendar, .calendar-section, [data-section="calendar"]');
+  const calendarSection = document.querySelector('#takvim, #calendar, .calendar-section');
   if (calendarSection && !calendarSection.querySelector('.admin-add-event-btn')) {
     const btn = document.createElement('button');
     btn.className = 'admin-add-event-btn admin-btn';
@@ -161,7 +161,7 @@ function injectAdminButtons() {
   }
 
   // Training / Education section
-  const trainingSection = document.querySelector('#trainings, #education, .education-section, [data-section="education"]');
+  const trainingSection = document.querySelector('#egitimler, #trainings, #education, .education-section');
   if (trainingSection && !trainingSection.querySelector('.admin-add-training-btn')) {
     const btn = document.createElement('button');
     btn.className = 'admin-add-training-btn admin-btn';
