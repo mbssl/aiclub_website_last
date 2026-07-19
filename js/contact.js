@@ -47,18 +47,18 @@ const MAILTO_ADDRESS = 'contact@hacettepeaiclub.com';
 // ---------------------------------------------------------------------------
 //  DOM References
 // ---------------------------------------------------------------------------
-const contactModal    = document.getElementById('contact-modal');
-const contactContent  = document.getElementById('contact-modal-content');
-const contactForm     = document.getElementById('contact-form');
-const contactClose    = document.getElementById('contact-close');
-const contactCancel   = document.getElementById('contact-cancel');
+const contactModal = document.getElementById('contact-modal');
+const contactContent = document.getElementById('contact-modal-content');
+const contactForm = document.getElementById('contact-form');
+const contactClose = document.getElementById('contact-close');
+const contactCancel = document.getElementById('contact-cancel');
 const contactTriggers = document.querySelectorAll('.contact-trigger');
 
 const fields = {
-  name:    document.getElementById('contact-name'),
+  name: document.getElementById('contact-name'),
   surname: document.getElementById('contact-surname'),
-  phone:   document.getElementById('contact-phone'),
-  email:   document.getElementById('contact-email'),
+  phone: document.getElementById('contact-phone'),
+  email: document.getElementById('contact-email'),
   message: document.getElementById('contact-message'),
 };
 
@@ -147,10 +147,10 @@ function showFieldErrors(errors) {
   // Reset previous errors
   Object.values(fields).forEach((f) => f?.classList.remove('field-error'));
 
-  if (errors.some((e) => e.includes('Ad')))      fields.name?.classList.add('field-error');
-  if (errors.some((e) => e.includes('Soyad')))    fields.surname?.classList.add('field-error');
-  if (errors.some((e) => e.includes('posta')))    fields.email?.classList.add('field-error');
-  if (errors.some((e) => e.includes('Mesaj')))    fields.message?.classList.add('field-error');
+  if (errors.some((e) => e.includes('Ad'))) fields.name?.classList.add('field-error');
+  if (errors.some((e) => e.includes('Soyad'))) fields.surname?.classList.add('field-error');
+  if (errors.some((e) => e.includes('posta'))) fields.email?.classList.add('field-error');
+  if (errors.some((e) => e.includes('Mesaj'))) fields.message?.classList.add('field-error');
 }
 
 // ---------------------------------------------------------------------------
@@ -204,10 +204,10 @@ function handleSubmit(e) {
   }
 
   const data = {
-    name:    fields.name.value.trim(),
+    name: fields.name.value.trim(),
     surname: fields.surname.value.trim(),
-    phone:   fields.phone?.value.trim() || '-',
-    email:   fields.email.value.trim(),
+    phone: fields.phone?.value.trim() || '-',
+    email: fields.email.value.trim(),
     message: fields.message.value.trim(),
   };
 
